@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Header from './Header'
 import TaskList from './TaskList'
-import TaskInput from './Task Input'
-import './App.css'
+import TaskInput from './TaskInput'
+//import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -12,11 +12,11 @@ function App() {
   }
 
   return (
-    <main>
+    <>
         <Header count={tasks.length} />
         <TaskInput onAdd={addTask} />
-        <TaskList item={tasks} />
-    </main>
+        <TaskList items={tasks} />
+    </>
   )
 }
 
