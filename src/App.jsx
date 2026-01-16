@@ -5,7 +5,11 @@ import TaskInput from './TaskInput'
 //import './App.css'
 
 function App() {
-  const [tasks, setTasks] = useState([])
+  // Load saved tsks from local storage
+  const [tasks, setTasks] = useState( () => {
+    const saved = localStorage.getItem("tasks");
+    return saved? JSON.parse(saved) : [];
+  });
   
   const addTask = (newText) => {
     setTasks([...tasks, newText])
