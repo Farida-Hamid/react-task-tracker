@@ -16,8 +16,10 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   });
   
-  const addTask = (newText) => {
-    setTasks([...tasks, newText])
+  const addTask = (formData) => {
+    const newTask = formData.get("taskText")
+    if(!newTask) return;
+    setTasks([...tasks, newTask])
   }
 
   return (
