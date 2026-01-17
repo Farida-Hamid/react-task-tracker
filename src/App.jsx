@@ -16,12 +16,14 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   });
   
-  const addTask = (formData) => {
-    const newTask = formData.get("taskText")
-    if(!newTask) return;
-    setTasks([...tasks, newTask])
-  }
-
+  // const addTask = (formData) => {
+  //   const newTask = formData.get("taskText")
+  //   if(!newTask) return;
+  //   setTasks([...tasks, newTask])
+  // }
+  const addTask = (text) => {
+    setTasks([...tasks, text]);
+  };
   return (
     <>
         <Header count={tasks.length} />
