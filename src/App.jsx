@@ -16,19 +16,20 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   });
   
-  // const addTask = (formData) => {
-  //   const newTask = formData.get("taskText")
-  //   if(!newTask) return;
-  //   setTasks([...tasks, newTask])
-  // }
   const addTask = (text) => {
     setTasks([...tasks, text]);
   };
+
+  // Delete a task
+  const  deleteTask = (indexToDlete) => {
+    setTasks(tasks.filter((_, index) => index !== indexToDlete))
+  };
+  
   return (
     <>
         <Header count={tasks.length} />
-        <TaskInput onAdd={addTask} />
-        <TaskList items={tasks} />
+        <TaskInput onAdd={addTask}  />
+        <TaskList items={tasks} onDelete={deleteTask} />
     </>
   )
 }
