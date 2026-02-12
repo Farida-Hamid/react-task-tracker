@@ -14,7 +14,7 @@ function App() {
   // Save tasks
   useEffect( () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  });
+  }, [tasks]);
   
   const addTask = (text) => {
     setTasks([...tasks, text]);
